@@ -9,18 +9,17 @@ import Foundation
 
 class API {
     private static var instance: API!
+    let baseUrl = "http://localhost:3000"
     
-    class func getInstance() -> API {
+    static func getInstance() -> API {
         if self.instance == nil {
             self.instance = API()
         }
         return self.instance
     }
-    
-    let baseUrl = URL(string: "http://localhost:3000")
-    
-    func request(route: String, method: String, token: String?, body: [String: Any]?) -> URLRequest {
-        var request = URLRequest(url: self.baseUrl!)
+        
+    func request(route: String, method: String, token: String? = nil, body: [String: Any]? = nil) -> URLRequest {
+        var request = URLRequest(url: URL(string: "\(self.baseUrl)\(route)")!)
         request.httpMethod = method
         
         if let token = token {

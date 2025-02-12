@@ -8,7 +8,7 @@
 import Foundation
 
 class DeliveryFactory {
-    class func newInstance(dict: [String: Any]) -> Delivery? {
+    static func newInstance(dict: [String: Any]) -> Delivery? {
         guard
             let id = UUID(uuidString: (dict["id"] as? String)!),
             let firstName = dict["firstName"] as? String,
