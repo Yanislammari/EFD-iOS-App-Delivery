@@ -17,7 +17,7 @@ class API {
         return self.instance
     }
     
-    let baseUrl = URL(string: "http://localhos:3000")
+    let baseUrl = URL(string: "http://localhost:3000")
     
     func request(route: String, method: String, token: String?, body: [String: Any]?) -> URLRequest {
         var request = URLRequest(url: self.baseUrl!)
