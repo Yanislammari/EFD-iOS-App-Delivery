@@ -25,6 +25,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.authService.message = nil
+        self.authService.token = nil
+    }
+    
     @IBAction func loginButtonAction(_ sender: UIButton) {
         if emailTextField.text?.isEmpty == true || passwordTextField.text?.isEmpty == true {
             self.toastHandler.showToast(message: "All fields are required", in: self)
