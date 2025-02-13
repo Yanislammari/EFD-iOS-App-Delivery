@@ -10,6 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="EFD_Delivery" customModuleProvider="target">
             <connections>
+                <outlet property="applyForAnAccountLabel" destination="0z2-jU-Ce6" id="Y6S-lq-ntS"/>
+                <outlet property="emailTextField" destination="gMW-EO-jiv" id="II4-1k-pa9"/>
+                <outlet property="forgottenPasswordLabel" destination="R86-gd-L6h" id="08k-ve-PDR"/>
+                <outlet property="passwordTextField" destination="QcX-Zt-9a7" id="CJ6-KR-cM8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -63,6 +67,9 @@
                         <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                         <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="loginButtonAction:" destination="-1" eventType="touchUpInside" id="fnt-fg-zzM"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply for an account here !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-jU-Ce6">
                     <rect key="frame" x="21" y="773" width="356" height="21"/>

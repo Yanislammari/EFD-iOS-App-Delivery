@@ -19,8 +19,7 @@ class AuthService {
         return self.instance
     }
     
-    func login(email: String, password: String, completion: @escaping (String?) -> Void) -> Void {
-        var result: String? = nil
+    func login(email: String, password: String, completion: @escaping () -> Void) -> Void {
         let body = [
             "email": email,
             "password": password
@@ -40,13 +39,11 @@ class AuthService {
             DispatchQueue.main.async {
                 if let message = json["message"] as? String {
                     self.message = message
-                    result = self.message
                 }
                 if let token = json["token"] as? String {
                     self.token = token
-                    result = self.token
                 }
-                completion(result)
+                completion()
             }
         }
         task.resume()
