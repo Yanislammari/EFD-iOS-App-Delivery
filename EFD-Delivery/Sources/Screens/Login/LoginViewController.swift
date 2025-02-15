@@ -21,6 +21,10 @@ class LoginViewController: UIViewController {
         return ToastHandler.getInstance()
     }
     
+    var navigationHandler: NavigationHandler {
+        return NavigationHandler.getInstance()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,7 +47,7 @@ class LoginViewController: UIViewController {
                     self.toastHandler.showToast(message: self.authService.message!, in: self)
                 }
                 else if self.authService.token != nil {
-                    self.navigationController?.pushViewController(DeliveriesMapViewController(), animated: true)
+                    self.navigationController?.pushViewController(self.navigationHandler.initNavigation(), animated: true)
                 }
                 else {
                     self.toastHandler.showToast(message: "Error servor", in: self)
