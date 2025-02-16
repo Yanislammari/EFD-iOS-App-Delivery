@@ -7,8 +7,8 @@
 
 import Foundation
 
-class DeliveryFactory {
-    static func newInstance(dict: [String: Any]) -> Delivery? {
+class DeliveryManFactory {
+    static func newInstance(dict: [String: Any]) -> DeliveryMan? {
         guard
             let id = UUID(uuidString: (dict["id"] as? String)!),
             let firstName = dict["firstName"] as? String,
@@ -21,6 +21,6 @@ class DeliveryFactory {
             return nil
         }
         
-        return Delivery(id: id, firstName: firstName, lastName: lastName, phone: phone, status: status, email: email, password: password)
+        return DeliveryMan(id: id, firstName: firstName, lastName: lastName, phone: phone, status: status, email: email, password: password)
     }
 }

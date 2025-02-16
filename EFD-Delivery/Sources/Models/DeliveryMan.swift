@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Delivery {
+class DeliveryMan {
     let id: UUID
     let firstName: String
     let lastName: String
