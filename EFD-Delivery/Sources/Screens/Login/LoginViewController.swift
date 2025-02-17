@@ -17,6 +17,10 @@ class LoginViewController: UIViewController {
         return AuthService.getInstance()
     }
     
+    var deliveryManService: DeliveryManService {
+        return DeliveryManService.getInstance()
+    }
+    
     var toastHandler: ToastHandler {
         return ToastHandler.getInstance()
     }
@@ -47,6 +51,11 @@ class LoginViewController: UIViewController {
                     self.toastHandler.showToast(message: self.authService.message!, in: self)
                 }
                 else if self.authService.token != nil {
+                    self.authService.decodeToken(token: self.authService.token!) { userId in
+                        self.deliveryManService.getDeliveryManById(id: userId, token: self.authService.token!) { deliveryMan in
+                            self.deliveryManService.deliveryManConnected = deliveryMan
+                        }
+                    }
                     self.navigationController?.pushViewController(self.navigationHandler.initNavigation(), animated: true)
                 }
                 else {

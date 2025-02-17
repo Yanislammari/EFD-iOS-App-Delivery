@@ -29,7 +29,7 @@ class AuthService {
             "password": password
         ]
         
-        let request = api.request(route: "/deliveryman/login", method: "POST", body: body)
+        let request = self.api.request(route: "/deliveryman/login", method: "POST", body: body)
         let task: URLSessionDataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
                 return
@@ -54,7 +54,7 @@ class AuthService {
     }
     
     func decodeToken(token: String, completion: @escaping (String) -> Void) -> Void {
-        let request = api.request(route: "/decode-token", method: "GET", token: token)
+        let request = self.api.request(route: "/decode-token", method: "GET", token: token)
         let task: URLSessionDataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
                 return
