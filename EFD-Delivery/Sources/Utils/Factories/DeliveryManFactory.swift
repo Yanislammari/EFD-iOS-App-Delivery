@@ -10,9 +10,9 @@ import Foundation
 class DeliveryManFactory {
     static func newInstance(dict: [String: Any]) -> DeliveryMan? {
         guard
-            let id = UUID(uuidString: (dict["id"] as? String)!),
-            let firstName = dict["firstName"] as? String,
-            let lastName = dict["lastName"] as? String,
+            let id = UUID(uuidString: (dict["uuid"] as? String)!),
+            let firstName = dict["first_name"] as? String,
+            let lastName = dict["name"] as? String,
             let phone = dict["phone"] as? String,
             let status = dict["status"] as? String,
             let email = dict["email"] as? String,
