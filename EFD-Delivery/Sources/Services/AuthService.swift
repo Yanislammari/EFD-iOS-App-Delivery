@@ -72,4 +72,27 @@ class AuthService {
         }
         task.resume()
     }
+    
+    func getNewPasswd(email: String, completion: @escaping () -> Void) -> Void {
+        let body = [
+            "email": email,
+        ]
+        
+        let request = self.api.request(route: "/deliveryman/forgot_password", method: "POST", body: body)
+        let task: URLSessionDataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error == nil else {
+                return
+            }
+            guard let data = data else {
+                return
+            }
+            guard (try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]) != nil else {
+                return
+            }
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+        task.resume()
+    }
 }
