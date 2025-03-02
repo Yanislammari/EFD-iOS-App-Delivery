@@ -42,4 +42,27 @@ class DeliveryManService {
         }
         task.resume()
     }
+    
+    func updateDeliveryManPosition(id: String, token: String, lat: Float, lng: Float, completion: @escaping () -> Void) {
+        let body = [
+            "lat": lat,
+            "lng": lng
+        ]
+        
+        let request = self.api.request(route: "/delivery_man/\(id)", method: "PATCH", token: token, body: body)
+        let task: URLSessionDataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard
+                error == nil,
+                let httpResponse = response as? HTTPURLResponse,
+                httpResponse.statusCode == 200
+            else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+        task.resume()
+    }
 }

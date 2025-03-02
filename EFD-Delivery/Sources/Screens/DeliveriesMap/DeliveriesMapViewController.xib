@@ -1,22 +1,80 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeliveriesMapViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeliveriesMapViewController" customModule="EFD_Delivery" customModuleProvider="target">
             <connections>
+                <outlet property="errorLocationButton" destination="fRO-iT-aKZ" id="CZ0-fH-LJc"/>
+                <outlet property="errorLocationLabel" destination="H9D-ix-geU" id="Ghx-T6-wbu"/>
+                <outlet property="errorLocationView" destination="p3c-Ob-MEB" id="TN4-29-hjC"/>
+                <outlet property="mapView" destination="vON-Bh-b54" id="V68-eL-mTW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vON-Bh-b54">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <standardMapConfiguration key="preferredConfiguration"/>
+                </mapView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p3c-Ob-MEB">
+                    <rect key="frame" x="29" y="702" width="335" height="85.333333333333371"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veuillez activer votre localisation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9D-ix-geU">
+                            <rect key="frame" x="10" y="9.9999999999999982" width="315" height="20.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRO-iT-aKZ">
+                            <rect key="frame" x="10" y="40.333333333333371" width="315" height="35"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Cliquez ici pour activer"/>
+                            <connections>
+                                <action selector="handleLocationSettings:" destination="-1" eventType="touchUpInside" id="GlY-nR-gHb"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.36511600379999998" green="0.36511600379999998" blue="0.36511600379999998" alpha="0.24868067050000001" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="H9D-ix-geU" firstAttribute="centerX" secondItem="p3c-Ob-MEB" secondAttribute="centerX" id="8vM-1W-SCk"/>
+                        <constraint firstItem="H9D-ix-geU" firstAttribute="top" secondItem="p3c-Ob-MEB" secondAttribute="top" constant="10" id="IEi-aA-m8b"/>
+                        <constraint firstAttribute="trailing" secondItem="H9D-ix-geU" secondAttribute="trailing" constant="10" id="MgC-Bq-KTR"/>
+                        <constraint firstItem="fRO-iT-aKZ" firstAttribute="leading" secondItem="p3c-Ob-MEB" secondAttribute="leading" constant="10" id="c8K-Hq-F5u"/>
+                        <constraint firstAttribute="bottom" secondItem="fRO-iT-aKZ" secondAttribute="bottom" constant="10" id="efa-lX-lqd"/>
+                        <constraint firstItem="H9D-ix-geU" firstAttribute="leading" secondItem="p3c-Ob-MEB" secondAttribute="leading" constant="10" id="lI4-vm-yU0"/>
+                        <constraint firstAttribute="trailing" secondItem="fRO-iT-aKZ" secondAttribute="trailing" constant="10" id="mf4-uP-32f"/>
+                        <constraint firstItem="fRO-iT-aKZ" firstAttribute="top" secondItem="H9D-ix-geU" secondAttribute="bottom" constant="10" id="uOJ-Zc-nCF"/>
+                    </constraints>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="vON-Bh-b54" secondAttribute="bottom" id="8LF-Zt-81h"/>
+                <constraint firstItem="p3c-Ob-MEB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="643" id="Gbz-Gg-DnF"/>
+                <constraint firstItem="vON-Bh-b54" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NVs-8e-Hbg"/>
+                <constraint firstItem="p3c-Ob-MEB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="29" id="Txy-9H-B3U"/>
+                <constraint firstItem="vON-Bh-b54" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Wg0-mr-dwo"/>
+                <constraint firstItem="vON-Bh-b54" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="bSB-d0-rL9"/>
+                <constraint firstItem="p3c-Ob-MEB" firstAttribute="centerX" secondItem="vON-Bh-b54" secondAttribute="centerX" id="gTS-jl-0EP"/>
+            </constraints>
+            <point key="canvasLocation" x="54.198473282442748" y="-11.267605633802818"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

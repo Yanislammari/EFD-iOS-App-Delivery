@@ -28,12 +28,6 @@
                     <color key="textColor" systemColor="systemGroupedBackgroundColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xo3-6e-hBC">
-                    <rect key="frame" x="21" y="734" width="356" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <color key="textColor" systemColor="systemGroupedBackgroundColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMW-EO-jiv">
                     <rect key="frame" x="20" y="340" width="352" height="34"/>
                     <color key="backgroundColor" systemColor="tintColor"/>
@@ -71,8 +65,8 @@
                         <action selector="loginButtonAction:" destination="-1" eventType="touchUpInside" id="fnt-fg-zzM"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply for an account here !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-jU-Ce6">
-                    <rect key="frame" x="21" y="773" width="356" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z2-jU-Ce6">
+                    <rect key="frame" x="21" y="770" width="356" height="24"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <color key="textColor" systemColor="systemGroupedBackgroundColor"/>
                     <nil key="highlightedColor"/>
@@ -80,9 +74,9 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EFD-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="wvJ-Nm-zl0">
                     <rect key="frame" x="-2" y="111" width="398" height="235"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgotten password ? Click here !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R86-gd-L6h">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your account have been created by an admin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R86-gd-L6h">
                     <rect key="frame" x="54" y="444" width="285" height="21"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -90,13 +84,10 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xo3-6e-hBC" secondAttribute="trailing" constant="16" id="1a2-c2-mVP"/>
-                <constraint firstItem="xo3-6e-hBC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="21" id="1jV-bc-aBl"/>
                 <constraint firstItem="3tQ-kQ-5sO" firstAttribute="top" secondItem="QcX-Zt-9a7" secondAttribute="bottom" constant="52" id="2G5-Po-kIs"/>
                 <constraint firstItem="0z2-jU-Ce6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="21" id="7e4-7Q-KfX"/>
                 <constraint firstItem="wvJ-Nm-zl0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="-2" id="AGe-cN-7em"/>
                 <constraint firstItem="QcX-Zt-9a7" firstAttribute="top" secondItem="gMW-EO-jiv" secondAttribute="bottom" constant="22" id="AaK-Tg-cHh"/>
-                <constraint firstItem="xo3-6e-hBC" firstAttribute="top" secondItem="3tQ-kQ-5sO" secondAttribute="bottom" constant="199" id="BXl-MA-8SQ"/>
                 <constraint firstItem="3tQ-kQ-5sO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Cj7-ci-hvj"/>
                 <constraint firstItem="yx9-1Z-1jy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="GQg-cf-CDd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wvJ-Nm-zl0" secondAttribute="trailing" constant="-3" id="Haz-fN-VIe"/>
@@ -108,7 +99,6 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="QcX-Zt-9a7" secondAttribute="bottom" constant="388" id="UWU-xo-oaq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wvJ-Nm-zl0" secondAttribute="bottom" constant="472" id="WyU-dD-nqF"/>
                 <constraint firstItem="QcX-Zt-9a7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="XI7-I5-0qy"/>
-                <constraint firstItem="0z2-jU-Ce6" firstAttribute="top" secondItem="xo3-6e-hBC" secondAttribute="bottom" constant="18" id="Yz0-b9-VfW"/>
                 <constraint firstItem="R86-gd-L6h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="54" id="bJT-rW-DU5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0z2-jU-Ce6" secondAttribute="bottom" constant="24" id="cdf-lc-F2N"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yx9-1Z-1jy" secondAttribute="bottom" constant="708" id="cj3-yK-0jt"/>
@@ -117,7 +107,6 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0z2-jU-Ce6" secondAttribute="trailing" constant="16" id="geL-uI-xUO"/>
                 <constraint firstItem="yx9-1Z-1jy" firstAttribute="top" secondItem="wvJ-Nm-zl0" secondAttribute="bottom" constant="-271" id="lG1-BF-klH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yx9-1Z-1jy" secondAttribute="trailing" constant="21" id="mVx-jF-ZYm"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xo3-6e-hBC" secondAttribute="bottom" constant="63" id="nGf-Eu-wv7"/>
                 <constraint firstItem="gMW-EO-jiv" firstAttribute="top" secondItem="yx9-1Z-1jy" secondAttribute="bottom" constant="230" id="ns2-JX-oCa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="R86-gd-L6h" secondAttribute="trailing" constant="54" id="unc-Lg-uua"/>
                 <constraint firstItem="R86-gd-L6h" firstAttribute="top" secondItem="QcX-Zt-9a7" secondAttribute="bottom" constant="14" id="xPP-Kl-Ozc"/>

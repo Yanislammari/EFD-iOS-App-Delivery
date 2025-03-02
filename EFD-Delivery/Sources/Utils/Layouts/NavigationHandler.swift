@@ -9,6 +9,8 @@ import UIKit
 
 class NavigationHandler {
     private static var instance: NavigationHandler!
+    let deliveriesMapScreen = DeliveriesMapViewController(nibName: "DeliveriesMapViewController", bundle: nil)
+    let deliveryRoundsScreen = DeliveryRoundsViewController(nibName: "DeliveryRoundsViewController", bundle: nil)
     
     static func getInstance() -> NavigationHandler {
         if self.instance == nil {
@@ -18,36 +20,24 @@ class NavigationHandler {
     }
     
     func initNavigation() -> UIViewController {
-        let deliveriesMapScreen = DeliveriesMapViewController(nibName: "DeliveriesMapViewController", bundle: nil)
-        let deliveryRoundsScreen = DeliveryRoundsViewController(nibName: "DeliveryRoundsViewController", bundle: nil)
-        let cameraScreen = CameraViewController(nibName: "CameraViewController", bundle: nil)
-       
-        deliveriesMapScreen.tabBarItem.title = "Map"
-        deliveriesMapScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
-        deliveriesMapScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.systemIndigo], for: .selected)
-        deliveriesMapScreen.tabBarItem.image = UIImage(systemName: "map.fill")
-        deliveriesMapScreen.tabBarItem.image = deliveriesMapScreen.tabBarItem.image?.withTintColor(UIColor.gray, renderingMode: .alwaysOriginal)
-        deliveriesMapScreen.tabBarItem.selectedImage = deliveriesMapScreen.tabBarItem.selectedImage?.withTintColor(UIColor.systemIndigo, renderingMode: .alwaysOriginal)
+        self.deliveriesMapScreen.tabBarItem.title = "Map"
+        self.deliveriesMapScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
+        self.deliveriesMapScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.systemIndigo], for: .selected)
+        self.deliveriesMapScreen.tabBarItem.image = UIImage(systemName: "map.fill")
+        self.deliveriesMapScreen.tabBarItem.image = self.deliveriesMapScreen.tabBarItem.image?.withTintColor(UIColor.gray, renderingMode: .alwaysOriginal)
+        self.deliveriesMapScreen.tabBarItem.selectedImage = self.deliveriesMapScreen.tabBarItem.selectedImage?.withTintColor(UIColor.systemIndigo, renderingMode: .alwaysOriginal)
         
-        deliveryRoundsScreen.tabBarItem.title = "Rounds"
-        deliveryRoundsScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
-        deliveryRoundsScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.systemIndigo], for: .selected)
-        deliveryRoundsScreen.tabBarItem.image = UIImage(systemName: "shippingbox.fill")
-        deliveryRoundsScreen.tabBarItem.image = deliveryRoundsScreen.tabBarItem.image?.withTintColor(UIColor.gray, renderingMode: .alwaysOriginal)
-        deliveryRoundsScreen.tabBarItem.selectedImage = deliveryRoundsScreen.tabBarItem.selectedImage?.withTintColor(UIColor.systemIndigo, renderingMode: .alwaysOriginal)
-        
-        cameraScreen.tabBarItem.title = "Camera"
-        cameraScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
-        cameraScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.systemIndigo], for: .selected)
-        cameraScreen.tabBarItem.image = UIImage(systemName: "camera.fill")
-        cameraScreen.tabBarItem.image = cameraScreen.tabBarItem.image?.withTintColor(UIColor.gray, renderingMode: .alwaysOriginal)
-        cameraScreen.tabBarItem.selectedImage = cameraScreen.tabBarItem.selectedImage?.withTintColor(UIColor.systemIndigo, renderingMode: .alwaysOriginal)
+        self.deliveryRoundsScreen.tabBarItem.title = "Rounds"
+        self.deliveryRoundsScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
+        self.deliveryRoundsScreen.tabBarItem.setTitleTextAttributes([.foregroundColor: UIColor.systemIndigo], for: .selected)
+        self.deliveryRoundsScreen.tabBarItem.image = UIImage(systemName: "shippingbox.fill")
+        self.deliveryRoundsScreen.tabBarItem.image = self.deliveryRoundsScreen.tabBarItem.image?.withTintColor(UIColor.gray, renderingMode: .alwaysOriginal)
+        self.deliveryRoundsScreen.tabBarItem.selectedImage = self.deliveryRoundsScreen.tabBarItem.selectedImage?.withTintColor(UIColor.systemIndigo, renderingMode: .alwaysOriginal)
         
         let navigationController: UITabBarController = UITabBarController()
         navigationController.viewControllers = [
-            deliveriesMapScreen,
-            deliveryRoundsScreen,
-            cameraScreen
+            self.deliveriesMapScreen,
+            self.deliveryRoundsScreen,
         ]
         
         navigationController.tabBar.backgroundColor = UIColor.white
