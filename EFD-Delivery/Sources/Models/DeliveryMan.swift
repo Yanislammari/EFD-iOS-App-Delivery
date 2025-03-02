@@ -8,7 +8,7 @@
 import Foundation
 
 class DeliveryMan {
-    let id: UUID
+    let id: String
     let firstName: String
     let lastName: String
     let phone: String
@@ -16,7 +16,7 @@ class DeliveryMan {
     let email: String
     let password: String
     
-    init(id: UUID, firstName: String, lastName: String, phone: String, status: String, email: String, password: String) {
+    init(id: String, firstName: String, lastName: String, phone: String, status: String, email: String, password: String) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName

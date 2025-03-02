@@ -44,19 +44,21 @@ class LoginViewController: UIViewController {
             self.toastHandler.showToast(message: "All fields are required", in: self)
             return
         }
-        
+            
         self.authService.login(email: emailTextField.text!, password: passwordTextField.text!) {
             DispatchQueue.main.async {
                 if self.authService.message != nil && self.authService.token == nil {
                     self.toastHandler.showToast(message: self.authService.message!, in: self)
                 }
-                else if self.authService.token != nil {
-                    self.authService.decodeToken(token: self.authService.token!) { userId in
-                        self.deliveryManService.getDeliveryManById(id: userId, token: self.authService.token!) { deliveryMan in
+                else if let token = self.authService.token {
+                    self.authService.decodeToken(token: token) { userId in
+                        self.deliveryManService.getDeliveryManById(id: userId, token: token) { deliveryMan in
                             self.deliveryManService.deliveryManConnected = deliveryMan
+                            DispatchQueue.main.async {
+                                self.navigationController?.pushViewController(self.navigationHandler.initNavigation(), animated: true)
+                            }
                         }
                     }
-                    self.navigationController?.pushViewController(self.navigationHandler.initNavigation(), animated: true)
                 }
                 else {
                     self.toastHandler.showToast(message: "Error servor", in: self)
