@@ -14,7 +14,11 @@ class LivraisonTableViewCell: UITableViewCell {
     
     func reload(with livraison: Livraison){
         self.LivraisonId.text = "\(livraison.uuid)"
-        self.LivraisonDate.text = "\(livraison.livraison_date)"
+        if let datePart = livraison.livraison_date.split(separator: "T").first {
+            self.LivraisonDate.text = String(datePart)
+        } else {
+            self.LivraisonDate.text = livraison.livraison_date
+        }
         self.LivraisonStatus.text = "\(livraison.status)"
     }
 }
