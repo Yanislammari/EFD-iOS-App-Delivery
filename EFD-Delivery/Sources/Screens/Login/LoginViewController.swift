@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var forgotPasswdButton: UIButton!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var passwordSendNewEmail: UIButton!
+    @IBOutlet weak var loginLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
     
     var authService: AuthService {
         return AuthService.getInstance()
@@ -37,6 +39,15 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         emailField.isHidden = true
         passwordSendNewEmail.isHidden = true
+        self.loginLabel.text = String(localized: "LOGIN_TEXT")
+        self.emailTextField.placeholder = String(localized: "EMAIL_TEXT_FIELD")
+        self.passwordTextField.placeholder = String(localized: "PASSWORD_TEXT_FIELD")
+        self.forgottenPasswordLabel.text = String(localized: "ACCOUNT_ADMIN_TEXT")
+        self.loginButton.setTitle(String(localized: "LOGIN_TEXT"), for: .normal)
+        self.emailField.text = String(localized: "EMAIL_TEXT_FIELD")
+        self.passwordSendNewEmail.setTitle(String(localized: "NEW_PASSWORD"), for: .normal)
+        self.welcomeLabel.text = String(localized: "WELCOME_TEXT")
+        self.forgotPasswdButton.setTitle(String(localized: "FORGOT_PASSWORD_BUTTON_TEXT"), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +60,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonAction(_ sender: UIButton) {
         if emailTextField.text?.isEmpty == true || passwordTextField.text?.isEmpty == true {
-            self.toastHandler.showToast(message: "All fields are required", in: self)
+            self.toastHandler.showToast(message: String(localized: "ALL_FIELDS_ERROR"), in: self)
             return
         }
             
@@ -69,7 +80,7 @@ class LoginViewController: UIViewController {
                     }
                 }
                 else {
-                    self.toastHandler.showToast(message: "Error servor", in: self)
+                    self.toastHandler.showToast(message: String(localized: "ERROR_SERVER"), in: self)
                 }
             }
         }

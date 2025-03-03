@@ -47,6 +47,7 @@ class DeliveriesMapViewController: UIViewController {
         self.initLocations()
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
+        self.initUserLocationStorage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,9 +60,8 @@ class DeliveriesMapViewController: UIViewController {
     
     func initErrorLocationView() {
         self.errorLocationView.layer.cornerRadius = 10
-        // MULTI LANGUE
-        //self.errorLocationLabel.text = String(localized: "GSCONTROLLER_ERROR_LOCATION")
-        //self.errorLocationButton.setTitle(String(localized: "GSCONTROLLER_ERROR_LOCATION_SETTINGS"), for: .normal)
+        self.errorLocationLabel.text = String(localized: "GSCONTROLLER_ERROR_LOCATION")
+        self.errorLocationButton.setTitle(String(localized: "GSCONTROLLER_ERROR_LOCATION_SETTINGS"), for: .normal)
         self.errorLocationView.isHidden = true
     }
     
@@ -170,9 +170,9 @@ extension DeliveriesMapViewController: MKMapViewDelegate {
         guard let userLocation = self.mapView.userLocation.location else {
             return
         }
-        
-        let latitude = Float(userLocation.coordinate.latitude)
-        let longitude = Float(userLocation.coordinate.longitude)
+                
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
         
         self.deliveryManService.updateDeliveryManPosition(id: self.deliveryManService.deliveryManConnected!.id, token: self.authService.token!, lat: latitude, lng: longitude) {}
     }
@@ -213,11 +213,11 @@ extension DeliveriesMapViewController: MKMapViewDelegate {
                 self.present(imagePicker, animated: true, completion: nil)
             }
             else {
-                self.toastHandler.showToast(message: "Camera not available", in: self)
+                self.toastHandler.showToast(message: String(localized: "CAMERA_MESSAGE_ERROR"), in: self)
             }
         }
         else {
-            self.toastHandler.showToast(message: "Erreur: Vous n'êtes pas à proximité du colis (distance > 200m)", in: self)
+            self.toastHandler.showToast(message: String(localized: "DISTANCE_DELIVERY_ERROR"), in: self)
         }
     }
 }
@@ -238,19 +238,19 @@ extension DeliveriesMapViewController: UIImagePickerControllerDelegate, UINaviga
         
         guard let image = info[.originalImage] as? UIImage,
               let imageData = image.jpegData(compressionQuality: 0.8) else {
-            self.toastHandler.showToast(message: "Erreur lors de la récupération de la photo", in: self)
+            self.toastHandler.showToast(message: String(localized: "GET_PHOTO_ERROR"), in: self)
             return
         }
         
         guard let selectedAnnotation = self.selectedAnnotation,
               let uuid = selectedAnnotation.subtitle else {
-            self.toastHandler.showToast(message: "Aucun point sélectionné", in: self)
+            self.toastHandler.showToast(message: String(localized: "NO_POINT_SELECTED_ERROR"), in: self)
             return
         }
         
         self.colisService.uploadPhotoColis(id: uuid!, token: self.authService.token!, photoData: imageData) {
             DispatchQueue.main.async {
-                self.toastHandler.showToast(message: "Photo envoyée", in: self)
+                self.toastHandler.showToast(message: String(localized: "PHOTO_SEND_SUCCES"), in: self)
             }
         }
     }

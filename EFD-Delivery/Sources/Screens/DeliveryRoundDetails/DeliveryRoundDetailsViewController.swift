@@ -29,15 +29,12 @@ class DeliveryRoundDetailsViewController: UIViewController, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let aColis = self.colis[indexPath.row]
         if let imagePath = aColis.image_path, !imagePath.isEmpty {
-            // Colis avec photo : hauteur de 300
             return 300
         } else {
-            // Colis sans photo : hauteur de 50
             return 100
         }
     }
 
-    // Pour la sélection de la cellule dans cellForRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let aColis = self.colis[indexPath.row]
         
@@ -54,7 +51,6 @@ class DeliveryRoundDetailsViewController: UIViewController, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Enregistrement des nibs pour les deux types de cellules
         let colisCellNib = UINib(nibName: "ColisTableViewCell", bundle: nil)
         self.colisTableView.register(colisCellNib, forCellReuseIdentifier: "COLIS_CELL_ID")
         
@@ -68,9 +64,6 @@ class DeliveryRoundDetailsViewController: UIViewController, UITableViewDataSourc
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.colisService.getColisOfLivraisonById(id: livraison.uuid) { allColis in
-            for c in allColis {
-                print(c.image_path ?? "pas d'image")
-            }
             self.colis = allColis
             self.colisTableView.reloadData()
         }

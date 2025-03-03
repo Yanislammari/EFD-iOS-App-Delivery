@@ -9,7 +9,7 @@ import Foundation
 
 class API {
     private static var instance: API!
-    let baseUrl = "http://127.0.0.1:3000"
+    let baseUrl = "http://172.20.10.4:3000"
     
     static func getInstance() -> API {
         if self.instance == nil {

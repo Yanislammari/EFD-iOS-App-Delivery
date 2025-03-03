@@ -15,8 +15,8 @@ class ColisFactory {
             let adress_id = dict["adress_id"] as? String,
             let livraison_id = dict["livraison_id"] as? String,
             let status = dict["status"] as? String,
-            let lgt = dict["lgt"] as? Float,
-            let lat = dict["lat"] as? Float
+            let lgt = (dict["lgt"] as? NSNumber)?.floatValue,
+            let lat = (dict["lat"] as? NSNumber)?.floatValue
         else {
             return nil
         }

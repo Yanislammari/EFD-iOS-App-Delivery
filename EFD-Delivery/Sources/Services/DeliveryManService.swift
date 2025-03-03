@@ -43,7 +43,7 @@ class DeliveryManService {
         task.resume()
     }
     
-    func updateDeliveryManPosition(id: String, token: String, lat: Float, lng: Float, completion: @escaping () -> Void) {
+    func updateDeliveryManPosition(id: String, token: String, lat: Double, lng: Double, completion: @escaping () -> Void) {
         let body = [
             "lat": lat,
             "lng": lng
